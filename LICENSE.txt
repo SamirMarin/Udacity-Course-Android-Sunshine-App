@@ -1,0 +1,3 @@
+This is not my code.. It is here on github for the purpose of following along from different comupeters and backing up my code.. this code is created
+by following along with the udacity course on Developing Android Apps.. The LICENSE agreement for the orginal code which I'm following along for educational purposes
+can be found here: https://github.com/udacity/Sunshine-Version-2/blob/sunshine_master/LICENSE
