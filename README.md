@@ -1,2 +1,2 @@
-this code is done as a follow along with the Udacity course Developing Android App, it is not my own and should not be used by anyone as my own code. The original code from the course can be obtained
-directly from https://github.com/udacity/Sunshine-Version-2 for my purposes I'm just uploading the code as a follow along to keep my code available for my personal access.
+this code is written as a follow along with the Udacity course Developing Android App, it is not my own and should not be used by anyone as if my code. The original code from the course can be obtained
+directly from https://github.com/udacity/Sunshine-Version-2 for my purposes I'm uploading the code as a follow along to keep the code available for my access. Some modifications from the orginal course code may be present in this code, if such is the case the modifications will be small, the general functionality of the code is the same as the one found on the Udacity course.
