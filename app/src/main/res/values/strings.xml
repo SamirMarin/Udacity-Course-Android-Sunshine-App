@@ -1,5 +1,14 @@
 <resources>
+
+    <!--- main title for the app-->
     <string name="app_name">Sunshine</string>
+    <!--- donated by convention the setting -->
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <!--- added for botton used for debugging purposes to refresh
+     By convention, "action" denotes that this String will be used as the label for an Action-->
+    <string name="action_refresh" translatable = "false" >Refresh</string>
+
+    
 </resources>
