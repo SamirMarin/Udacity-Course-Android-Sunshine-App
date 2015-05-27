@@ -38,6 +38,7 @@ public class ForcastFragment extends Fragment {
         super.onCreate(savedInstanceState);
         // add line in order for fragment to handle the onCreateOptionMenu call
         setHasOptionsMenu(true);
+
     }
 
     @Override
@@ -47,10 +48,15 @@ public class ForcastFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+
         // handles selection of refresh botton
 
         int id = item.getItemId();
         if(id == R.id.action_refresh){
+            // refresh botton starts the json parse
+            FetchWeatherTask fetchWeather = new FetchWeatherTask();
+            fetchWeather.execute();
             return true;
         }
 
@@ -94,7 +100,7 @@ public class ForcastFragment extends Fragment {
 
         return rootView;
     }
-    
+
 
     public class FetchWeatherTask extends AsyncTask<Void, Void, Void>{
 
@@ -143,6 +149,8 @@ public class ForcastFragment extends Fragment {
                     return null;
                 }
                 forecastJsonStr = buffer.toString();
+
+                Log.v(LOG_TAG, "Forecast Json String" + forecastJsonStr);
             } catch (IOException e) {
                 Log.e(LOG_TAG, "Error ", e);
                 // If the code didn't successfully get the weather data, there's no point in attemping
