@@ -1,5 +1,6 @@
 package com.example.samirmarin.sunshine.app;
 
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -105,6 +106,23 @@ public class ForcastFragment extends Fragment {
     public class FetchWeatherTask extends AsyncTask<Void, Void, Void>{
 
         private final String LOG_TAG = FetchWeatherTask.class.getSimpleName();
+
+        // used to build the uri.. so we can append user inputs..
+        private Uri.Builder builder = new Uri.Builder();
+
+        private void buildBaseUR(){
+            builder.scheme("https");
+            builder.authority("api.openweathermap.org");
+            builder.appendPath("data");
+            builder.appendPath("2.5");
+            builder.appendPath("forecast");
+        }
+
+        // use this method to get the user inputs done before doInBackground method.. 
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
 
         @Override
         protected Void doInBackground(Void... params) {
