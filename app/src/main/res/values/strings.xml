@@ -10,5 +10,5 @@
      By convention, "action" denotes that this String will be used as the label for an Action-->
     <string name="action_refresh" translatable = "false" >Refresh</string>
 
-    
+
 </resources>

@@ -5,6 +5,9 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -28,6 +31,30 @@ public class ForcastFragment extends Fragment {
     private ArrayAdapter<String> adapter;
 
     public ForcastFragment() {
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // add line in order for fragment to handle the onCreateOptionMenu call
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.forcastfragment, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // handles selection of refresh botton
+
+        int id = item.getItemId();
+        if(id == R.id.action_refresh){
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -59,10 +86,15 @@ public class ForcastFragment extends Fragment {
 
         listView_forecast.setAdapter(adapter);
 
+        // not sure if put this here but this method must be caled prior to being able to cal
+        // onCreateOptionMenu
+        //setHasOptionsMenu(true);
+
 
 
         return rootView;
     }
+    
 
     public class FetchWeatherTask extends AsyncTask<Void, Void, Void>{
 
