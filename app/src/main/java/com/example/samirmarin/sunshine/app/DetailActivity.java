@@ -13,15 +13,7 @@ public class DetailActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_detail);
-        Intent intent = getIntent();
-        String weatherData = intent.getStringExtra(intent.EXTRA_TEXT);
-
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        textView.setText(weatherData);
-
-        setContentView(textView);
+        setContentView(R.layout.activity_detail);
 
     }
 

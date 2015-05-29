@@ -9,7 +9,7 @@
     <!--- added for botton used for debugging purposes to refresh
      By convention, "action" denotes that this String will be used as the label for an Action-->
     <string name="action_refresh" translatable = "false" >Refresh</string>
-    <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_activity_detail">Details</string>
 
 
 </resources>
