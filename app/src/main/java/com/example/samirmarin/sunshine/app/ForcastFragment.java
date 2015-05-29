@@ -1,6 +1,7 @@
 package com.example.samirmarin.sunshine.app;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
@@ -108,13 +109,20 @@ public class ForcastFragment extends Fragment {
         listView_forecast.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                // starting the detail intent to launch details for weather at each day..
+                Intent detailIntent = new Intent(getActivity(), DetailActivity.class);
+                detailIntent.putExtra(detailIntent.EXTRA_TEXT, adapter.getItem(position));
+                startActivity(detailIntent);
+                //getActivity().startService(detailIntent);
+                //Log.v("intent data", detailIntent.getDataString());
+
+                /*// using a toast to more of less check clicking function for detail content
                 Context context = getActivity();
                 String text = adapter.getItem(position);
                 int duration = Toast.LENGTH_SHORT;
-
-
                 Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+                toast.show();*/
             }
         });
 
