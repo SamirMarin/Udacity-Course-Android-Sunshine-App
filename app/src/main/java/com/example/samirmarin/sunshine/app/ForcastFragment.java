@@ -1,5 +1,6 @@
 package com.example.samirmarin.sunshine.app;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
@@ -12,9 +13,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -100,10 +103,20 @@ public class ForcastFragment extends Fragment {
 
         listView_forecast.setAdapter(adapter);
 
-        // not sure if put this here but this method must be caled prior to being able to cal
-        // onCreateOptionMenu
-        //setHasOptionsMenu(true);
 
+
+        listView_forecast.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Context context = getActivity();
+                String text = adapter.getItem(position);
+                int duration = Toast.LENGTH_SHORT;
+
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
+        });
 
 
         return rootView;
