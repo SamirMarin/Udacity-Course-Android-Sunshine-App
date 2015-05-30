@@ -12,5 +12,14 @@
     <string name="title_activity_detail">Details</string>
     <string name="title_activity_settings">Settings</string>
 
+    <!--- title for the location edit text preference under settings-->
+    <string name="pref_location_label">Location</string>
+
+    <!--- Key for the preference location under setting-->
+    <string name="pref_location_key" translatable = "false" >location</string>
+
+    <!--- Location default name of city -->
+    <string name="pref_location_default" translatable = "false">vancouver</string>
+
 
 </resources>

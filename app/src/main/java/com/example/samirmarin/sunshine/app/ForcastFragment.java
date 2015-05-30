@@ -2,8 +2,10 @@ package com.example.samirmarin.sunshine.app;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.text.format.Time;
@@ -67,12 +69,29 @@ public class ForcastFragment extends Fragment {
         int id = item.getItemId();
         if(id == R.id.action_refresh){
             // refresh botton starts the json parse
-            FetchWeatherTask fetchWeather = new FetchWeatherTask();
-            fetchWeather.execute("Vancouver");
+            updateWeather();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // this methods is what calls the Json parser
+    private void updateWeather(){
+        FetchWeatherTask fetchWeather = new FetchWeatherTask();
+
+        // gets the user input from the settings dialog box..
+        String location = PreferenceManager.getDefaultSharedPreferences(getActivity()).
+                getString(getString(R.string.pref_location_key), getString(R.string.pref_location_default));
+
+        fetchWeather.execute(location);
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        updateWeather();
     }
 
     @Override
@@ -81,13 +100,15 @@ public class ForcastFragment extends Fragment {
 
         List<String> fakeListWeekWeather = new ArrayList<String>();
 
-        fakeListWeekWeather.add("Today - sunny - 88/63");
+        //orginal fake data used to test...
+
+        /*fakeListWeekWeather.add("Today - sunny - 88/63");
         fakeListWeekWeather.add("Tomorrow - cloudy - 75/60");
         fakeListWeekWeather.add("Wednesday - foggy - 70/65");
         fakeListWeekWeather.add("Thursday - showers - 73/64");
         fakeListWeekWeather.add("Friday - sunny - 100/90");
         fakeListWeekWeather.add("Saturday - cloudy - 90/80");
-        fakeListWeekWeather.add("Sunday - thunder - 100/95");
+        fakeListWeekWeather.add("Sunday - thunder - 100/95");*/
 
         adapter = new ArrayAdapter<String>(
                 //the current context(this items parent activity
