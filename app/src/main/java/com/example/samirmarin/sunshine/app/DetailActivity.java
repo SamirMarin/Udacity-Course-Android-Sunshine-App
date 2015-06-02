@@ -1,19 +1,10 @@
 package com.example.samirmarin.sunshine.app;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.support.v7.widget.ShareActionProvider;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 
 public class DetailActivity extends ActionBarActivity {
@@ -33,10 +24,6 @@ public class DetailActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_detail, menu);
-
-        //trying it here didnt work in other.
-        //infalte menu item, this add item to action bar if it is present
-
 
         return true;
     }
@@ -58,19 +45,6 @@ public class DetailActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-   /* private Intent createShareIntentForcast(){
-        Intent intent = this.getIntent();
-        String mWeatherDataForecast ="";
-        if(intent != null && intent.hasExtra(intent.EXTRA_TEXT)) {
-            mWeatherDataForecast = intent.getStringExtra(intent.EXTRA_TEXT);
-        }
-
-        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-        shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, mWeatherDataForecast+HASH_TAG_SHARE);
-        return shareIntent;
-    }*/
 
 
 

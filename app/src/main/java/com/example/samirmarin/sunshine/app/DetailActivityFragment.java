@@ -45,7 +45,12 @@ public class DetailActivityFragment extends Fragment {
 
         //get the provider
 
-        ShareActionProvider shareActionProvider = new ShareActionProvider(getActivity());
+        ShareActionProvider shareActionProvider;
+        //other method also works but with a bit different interace for menu
+        // shareActionProvider = new ShareActionProvider(this);
+        //MenuItemCompat.setActionProvider(menuItem, shareActionProvider);
+
+        shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
 
         //attach intent to the shareActionProvider
         if(shareActionProvider != null){
@@ -54,7 +59,8 @@ public class DetailActivityFragment extends Fragment {
         else{
             Log.d(LOG_CAT, "share action provider is null");
         }
-        MenuItemCompat.setActionProvider(menuItem, shareActionProvider);
+
+
     }
 
 
