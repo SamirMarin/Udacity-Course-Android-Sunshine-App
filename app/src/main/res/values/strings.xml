@@ -26,5 +26,11 @@
     <string name="temperature_units_key" translatable = "false">tempUnits</string>
     <string name="temparature_units_default" translatable = "false">metric</string>
 
+    <!--- menu for finding map location -->
+    <string name="map_location">My Location</string>
+
+    <!--- share menu-->
+    <string name="action_share">Share</string>
+
 
 </resources>

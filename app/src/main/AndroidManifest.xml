@@ -35,6 +35,11 @@
                 android:value="com.example.samirmarin.sunshine.app.MainActivity"/>
         </activity>
 
+        <!--- setting to use map app to show location-->
+
+
+
+
     </application>
 
 </manifest>
