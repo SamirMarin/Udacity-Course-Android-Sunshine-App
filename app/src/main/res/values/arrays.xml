@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="temperature_unit_entries">
+        <item>Metric</item>
+        <item>Imperial</item>
+    </array>
+
+    <array name="temperature_unit_entry_values">
+        <item>metric</item>
+        <item>imperial</item>
+    </array>
+</resources>

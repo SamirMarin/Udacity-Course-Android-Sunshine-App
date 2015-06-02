@@ -152,6 +152,8 @@ public class ForcastFragment extends Fragment {
     }
 
 
+
+
     public class FetchWeatherTask extends AsyncTask<String, Void, String[]>{
 
         private final String LOG_TAG = FetchWeatherTask.class.getSimpleName();
@@ -277,11 +279,31 @@ public class ForcastFragment extends Fragment {
          */
         private String formatHighLows(double high, double low) {
             // For presentation, assume the user doesn't care about tenths of a degree.
+
+            // checks the setting to see if need to manually change value to imperial before puttin on UI
+            boolean temp_units = changeImperialUnits();
+            // if need to change to imperial change
+            if(temp_units){
+                high = (long) (high*1.8 + 32);
+                low = (long) (low*1.8 +32);
+            }
             long roundedHigh = Math.round(high);
             long roundedLow = Math.round(low);
 
             String highLowStr = roundedHigh + "/" + roundedLow;
             return highLowStr;
+        }
+
+        // checks user input and changes returns true if user wants Imperal Units
+        private boolean changeImperialUnits(){
+            String tempUnits = PreferenceManager.getDefaultSharedPreferences(getActivity()).
+                    getString(getString(R.string.temperature_units_key), getString(R.string.pref_location_default));
+            if(tempUnits.equals("metric")){
+                return false;
+            }
+            else{
+                return true;
+            }
         }
 
         /**

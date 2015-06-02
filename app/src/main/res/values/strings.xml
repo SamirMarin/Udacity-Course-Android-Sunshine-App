@@ -21,5 +21,10 @@
     <!--- Location default name of city -->
     <string name="pref_location_default" translatable = "false">vancouver</string>
 
+    <!--- for temperature units... adding strings -->
+    <string name="temperature_units">Temperature Units</string>
+    <string name="temperature_units_key" translatable = "false">tempUnits</string>
+    <string name="temparature_units_default" translatable = "false">metric</string>
+
 
 </resources>
